@@ -1,3 +1,7 @@
+img = "";
+status = "";
+objects = [];
+objectDetector = "";
 function setup(){
     canvas = createCanvas(640, 420);
     canvas.center();
@@ -9,7 +13,7 @@ img = "";
 status = "";
 objects = [];
 function preload(){
-    img = loadImage('dog_cat.jpg');
+    img = loadImage('bedroom.jpg');
 }
 
 function draw(){
@@ -19,11 +23,11 @@ function draw(){
         for (i = 0; i <objects.lenght; i++){
             document.getElementById("status").innerHTML = "Status : Object Detected";
 
-            fill("#e01d1d");
+            fill(255,0,0);
             percent = floor(object[i].confidence * 100);
-            text(objects[i].label + " "+ percent + "%", objects[i].x, objects[i].y);
+            text(objects[i].label + " "+ percent + "%", objects[i].x + 15, objects[i].y + 15);
             noFill();
-            stroke("#e01d1d");
+            stroke(255,0,0);
             rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
         }
     }
